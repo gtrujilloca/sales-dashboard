@@ -1,1 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+@use './scss/css_reset' as *;
+@use './scss/variables' as *;
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 16px;
+  background-color: #f8f8f8;
+}
+
+.container {
+  width: 100%;
+  min-width: 400px;
+  max-width: 1020px;
+  margin: 0 auto;
+}
+.card {
+  box-shadow: 0 4px 24px 0 rgb(34 41 47 / 10%);
+  word-wrap: break-word;
+}
