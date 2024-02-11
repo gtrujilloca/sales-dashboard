@@ -1,0 +1,41 @@
+@use '../../../../../scss/variables' as *;
+
+.form__header {
+  text-align: center;
+  margin-bottom: 1rem;
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: $primary-color;
+  }
+
+  p {
+    color: $primary-color;
+    font-weight: 700;
+  }
+}
+
+button {
+  width: 100%;
+}
+
+.form__footer {
+  text-align: center;
+  padding-top: 1rem;
+  border-top: 1px solid #d5d5d5;
+  margin-top: 1rem;
+
+  p {
+    font-size: 0.8rem;
+  }
+
+  a {
+    color: $green-color;
+    font-weight: 500;
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

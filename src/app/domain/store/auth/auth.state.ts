@@ -1,7 +1,7 @@
-// import { ILogin } from 'src/app/core/models/auth.model';
+import { ILogin } from '@/app/core/models/auth.model';
 
 export interface AuthState {
-  // loginData: ILogin | null;
+  loginData: ILogin | null;
   isLoading: boolean;
-  isError: string | null;
+  hasError: string | null;
 }
