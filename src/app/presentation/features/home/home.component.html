@@ -1,1 +1,7 @@
-<p>home works!</p>
+<div class="home">
+  @if (kpis$ | async; as kpis){
+    @for(kpi of kpis; track kpi.id) {
+      <app-kpi [kpi]="kpi"></app-kpi>
+    }
+  }
+</div>

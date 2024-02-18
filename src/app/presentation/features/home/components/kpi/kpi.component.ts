@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { IKpi } from '@/app/core/models';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-kpi',
@@ -8,5 +9,10 @@ import { Component } from '@angular/core';
   styleUrl: './kpi.component.scss'
 })
 export class KpiComponent {
+  @Input() kpi: IKpi | null;
+  constructor() {
+    this.kpi = null;
+  }
 
+  ngOnInit(): void {}
 }

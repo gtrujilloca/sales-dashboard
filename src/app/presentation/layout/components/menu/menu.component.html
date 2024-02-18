@@ -1,1 +1,13 @@
-<p>menu works!</p>
+<nav class="menu">
+  <picture class="menu__logo">
+    <img src="assets/img/logo-white.png" alt="Logo image">
+  </picture>
+  <ul class="menu__list">
+    @for (link of links; track link.path) {
+    <li>
+      <a [routerLink]="[link.path]" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        {{link.title}}</a>
+    </li>
+    }
+  </ul>
+</nav>

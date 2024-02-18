@@ -7,7 +7,7 @@ export const routes: Routes = [
     path: '',
     pathMatch: 'full',
     component: BaseLoggedComponent,
-    canActivate: [LoggedGuard],
+    // canActivate: [LoggedGuard],
     children: [
       {
         path: 'home',
@@ -18,7 +18,7 @@ export const routes: Routes = [
   {
     path: 'auth',
     component: BaseAuthComponent,
-    canActivate: [UnloggedGuard],
+    // canActivate: [UnloggedGuard],
     children: [
       {
         path: 'login',
@@ -32,6 +32,6 @@ export const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: 'home',
+    redirectTo: '',
   }
 ];

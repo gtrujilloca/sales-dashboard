@@ -1,4 +1,6 @@
+import { ILogin } from '@/app/core/models';
 import { AuthService } from '@/app/data/services/auth/auth.service';
+import { AuthFacade } from '@/app/facades';
 import { CommonModule } from '@angular/common';
 import { Component, Inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
@@ -18,9 +20,12 @@ export class LoginComponent {
 
   loginForm!: FormGroup;
 
-  _authSrv: AuthService = Inject(AuthService);
+  private _authSrv: AuthService = Inject(AuthService);
+  private _authFacadde: AuthFacade = Inject(AuthFacade);
 
   constructor() {
+    this.loadingLogin$ = this._authFacadde.isLoading$;
+    this.loginError$ = this._authFacadde.isError$;
     this._initForm();
   }
 
@@ -28,18 +33,20 @@ export class LoginComponent {
 
     this.loginForm = new FormGroup({
       email: new FormControl('', { nonNullable: true, validators: [Validators.email, Validators.minLength(5)] }),
-      password: new FormControl('', { nonNullable: true, validators: [Validators.required,Validators.minLength(5)] }),
+      password: new FormControl('', { nonNullable: true, validators: [Validators.required, Validators.minLength(5)] }),
     });
   }
 
   onSubmitForm() {
     try {
-      this._authSrv.login(this.loginForm.getRawValue())
-        .subscribe(() => console.log('success login'));
       if (this.loginForm.invalid)
         throw new Error('Form is invalid');
 
-      const data = { ...this.loginForm.getRawValue() };
+      // this._authSrv.login(this.loginForm.getRawValue())
+      //   .subscribe(() => console.log('success login'));
+
+      const data: ILogin = { ...this.loginForm.getRawValue() };
+      this._authFacadde.login(data);
       console.log(data);
     } catch (error) {
       console.error(error);

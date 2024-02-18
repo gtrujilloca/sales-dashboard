@@ -1,10 +1,10 @@
-// import { IKpi, IOrders, IProducts } from 'src/app/core/models/products.model';
+import { IKpi, IOrder, IProduct } from '@/app/core/models';
 
 export interface HomeState {
-  // kpis: IKpi[] | null;
-  // loadingKpis: boolean | null;
-  // orders: IOrders[] | null;
-  // loadingOrders: boolean | null;
-  // products: IProducts[] | null;
-  // loadingProducts: boolean | null;
+  kpis: IKpi[] | null;
+  loadingKpis: boolean | null;
+  orders: IOrder[] | null;
+  loadingOrders: boolean | null;
+  products: IProduct[] | null;
+  loadingProducts: boolean | null;
 }

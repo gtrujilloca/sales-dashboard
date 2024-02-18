@@ -1,4 +1,3 @@
-
 <section class="form">
   <header class="form__header">
     <h2>Welcome Back</h2>
@@ -14,9 +13,9 @@
         <label class="label" for="password">Password</label>
         <input class="input" name="password" type="password" id="password" formControlName="password">
       </div>
-      <ng-container *ngIf="loginError$ | async as errorMessage">
-        <p class="error-form">{{ errorMessage }}</p>
-      </ng-container>
+      @if (loginError$ | async; as errorMessage) {
+      <p class="error-form">{{ errorMessage }}</p>
+      }
 
       <button type="submit" class="button is-success">
         Login
